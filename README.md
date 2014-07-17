@@ -2,6 +2,7 @@ pyvoicechanger
 ==============
 
 - Real Time Microphone Voice Changer App on 150 lines of Python 3 + Qt 5, single-file, easy use.
+- Works with Google Hangouts, Skype Calls, On-Line Games and VideoConferences !
 
 
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp.jpg)
