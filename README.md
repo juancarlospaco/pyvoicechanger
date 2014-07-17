@@ -27,3 +27,4 @@ pyvoicechanger
 - [Python 3.x](https://www.python.org "Python Homepage")
 - [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
 - Sox (Linux package)
+- Working Microphone, Speakers and Sound System.
