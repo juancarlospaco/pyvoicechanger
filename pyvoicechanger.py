@@ -9,7 +9,7 @@ __version__ = ' 0.0.1 '
 __license__ = ' GPLv3+ '
 __author__ = ' juancarlos '
 __email__ = ' juancarlospaco@gmail.com '
-__url__ = 'https://github.com/juancarlospaco'
+__url__ = 'https://github.com/juancarlospaco/pyvoicechanger#pyvoicechanger'
 
 
 # imports
