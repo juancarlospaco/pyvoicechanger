@@ -44,7 +44,7 @@ class MainWindow(QMainWindow):
         self.setWindowIcon(QIcon.fromTheme("audio-input-microphone"))
         self.center()
         QShortcut("Ctrl+q", self, activated=lambda: self.close())
-        self.menuBar().addMenu("&File").addAction("Exit", exit)
+        self.menuBar().addMenu("&File").addAction("Exit", self.close)
         windowMenu = self.menuBar().addMenu("&Window")
         windowMenu.addAction("Minimize", lambda: self.showMinimized())
         windowMenu.addAction("Maximize", lambda: self.showMaximized())
