@@ -29,3 +29,8 @@ pyvoicechanger
 - [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
 - Sox (Linux package)
 - Working Microphone, Speakers and Sound System.
+
+Donate:
+-------
+
+- If you want to Donate please [click here](http://www.icrc.org/eng/donations/index.jsp) or [click here](http://www.atheistalliance.org/support-aai/donate) or [click here](http://www.msf.org/donate) or [click here](http://richarddawkins.net/) or [click here](http://www.supportunicef.org/)
