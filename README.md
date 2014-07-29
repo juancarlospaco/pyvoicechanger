@@ -17,7 +17,7 @@ wget -O - https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master
 # Install permanently on the system:
 
 ```
-sudo apt-get install sox python3-pyqt5
+sudo apt-get install sox python3-pyqt5  # OR  sudo yum install python3-qt5 sox  OR  sudo pacman -S python-pyqt5 sox
 sudo wget -O /usr/bin/pyvoicechanger https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/pyvoicechanger.py
 sudo chmod +x /usr/bin/pyvoicechanger
 pyvoicechanger
