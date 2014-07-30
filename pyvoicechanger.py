@@ -27,6 +27,7 @@ from PyQt5.QtWidgets import (QApplication, QDial, QGraphicsDropShadowEffect,
 
 HELP = """<h3>PyVoiceChanger</h3><b>Microphone Voice Deformation App !.</b><br>
 Version {}, licence {}. DEV: <a href=https://github.com/juancarlospaco>Juan</a>
+<br>QA: <a href=https://github.com/rokarc>rokarc</a>
 """.format(__version__, __license__)
 
 
