@@ -53,6 +53,7 @@ class MainWindow(QMainWindow):
         windowMenu.addAction("Minimize", lambda: self.showMinimized())
         windowMenu.addAction("Maximize", lambda: self.showMaximized())
         windowMenu.addAction("Restore", lambda: self.showNormal())
+        windowMenu.addAction("FullScreen", lambda: self.showFullScreen())
         windowMenu.addAction("Center", lambda: self.center())
         windowMenu.addAction("Top-Left", lambda: self.move(0, 0))
         windowMenu.addAction("To Mouse", lambda: self.move_to_mouse_position())
@@ -71,6 +72,8 @@ class MainWindow(QMainWindow):
         windowMenu.addAction("Vertical Tall", lambda: self.resize(
             self.minimumSize().width(), self.maximumSize().height()))
         windowMenu.addSeparator()
+        windowMenu.addAction("Disable Resize", lambda:
+                             self.setFixedSize(self.size()))
         windowMenu.addAction("Set Interface Font...", lambda:
                              self.setFont(QFontDialog.getFont()[0]))
         helpMenu = self.menuBar().addMenu("&Help")
