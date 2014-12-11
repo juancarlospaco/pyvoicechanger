@@ -4,9 +4,10 @@
 
 
 # metadata
-""" PyVoiceChanger """
+"""PyVoiceChanger."""
+__package__ = "pyvoicechanger"
 __version__ = ' 0.0.1 '
-__license__ = ' GPLv3+ '
+__license__ = ' GPLv3+ LGPLv3+ '
 __author__ = ' juancarlos '
 __email__ = ' juancarlospaco@gmail.com '
 __url__ = 'https://github.com/juancarlospaco/pyvoicechanger#pyvoicechanger'
@@ -15,17 +16,19 @@ __source__ = ('https://raw.githubusercontent.com/juancarlospaco/'
 
 
 # imports
+import os
 import sys
+from ctypes import byref, cdll, create_string_buffer
 from getopt import getopt
 from subprocess import call
-from webbrowser import open_new_tab
 from urllib import request
+from webbrowser import open_new_tab
 
-from PyQt5.QtCore import QTimer, Qt, QProcess
-from PyQt5.QtGui import QColor, QIcon, QCursor
-from PyQt5.QtWidgets import (QApplication, QDial, QGraphicsDropShadowEffect,
-                             QGroupBox, QLabel, QMainWindow, QMessageBox,
-                             QShortcut, QVBoxLayout, QFontDialog)
+from PyQt5.QtCore import QProcess, Qt, QTimer
+from PyQt5.QtGui import QColor, QCursor, QIcon
+from PyQt5.QtWidgets import (QApplication, QDial, QFontDialog,
+                             QGraphicsDropShadowEffect, QGroupBox, QLabel,
+                             QMainWindow, QMessageBox, QShortcut, QVBoxLayout)
 
 
 HELP = """<h3>PyVoiceChanger</h3><b>Microphone Voice Deformation App !.</b><br>
@@ -38,6 +41,9 @@ Version {}, licence {}. DEV: <a href=https://github.com/juancarlospaco>Juan</a>
 
 
 class MainWindow(QMainWindow):
+
+    """Voice Changer main window."""
+
     def __init__(self, parent=None):
         super(MainWindow, self).__init__()
         self.statusBar().showMessage("Move the Dial to Deform mic voice !")
@@ -83,8 +89,9 @@ class MainWindow(QMainWindow):
         helpMenu.addAction("About" + __doc__,
                            lambda: QMessageBox.about(self, __doc__, HELP))
         helpMenu.addSeparator()
-        helpMenu.addAction("Keyboard Shortcut", lambda: QMessageBox.information(
-            self, __doc__, "Quit = CTRL+Q"))
+        helpMenu.addAction(
+            "Keyboard Shortcut",
+            lambda: QMessageBox.information(self, __doc__, "Quit = CTRL+Q"))
         helpMenu.addAction("View Source Code",
                            lambda: call('xdg-open ' + __file__, shell=True))
         helpMenu.addAction("View GitHub Repo", lambda: open_new_tab(__url__))
@@ -96,7 +103,7 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(group0)
         self.process = QProcess(self)
         self.process.error.connect(
-            lambda: self.statusBar().showMessage("Info: Process Killed!", 5000))
+            lambda: self.statusBar().showMessage("Info: Process Killed", 5000))
         # self.process3.finished.connect(self.on_process3_finished)
         self.control = QDial()
         self.control.setRange(-10, 20)
@@ -160,7 +167,7 @@ class MainWindow(QMainWindow):
         return QMessageBox.information(self, __doc__.title(), "<b>" + m)
 
     def center(self):
-        """Center the Window on the Current Screen,with Multi-Monitor support"""
+        """Center Window on the Current Screen,with Multi-Monitor support."""
         window_geometry = self.frameGeometry()
         mousepointer_position = QApplication.desktop().cursor().pos()
         screen = QApplication.desktop().screenNumber(mousepointer_position)
@@ -169,13 +176,13 @@ class MainWindow(QMainWindow):
         self.move(window_geometry.topLeft())
 
     def move_to_mouse_position(self):
-        """Center the Window on the Current Mouse position"""
+        """Center the Window on the Current Mouse position."""
         window_geometry = self.frameGeometry()
         window_geometry.moveCenter(QApplication.desktop().cursor().pos())
         self.move(window_geometry.topLeft())
 
     def closeEvent(self, event):
-        ' Ask to Quit '
+        """Ask to Quit."""
         the_conditional_is_true = QMessageBox.question(
             self, __doc__.title(), 'Quit ?.', QMessageBox.Yes | QMessageBox.No,
             QMessageBox.No) == QMessageBox.Yes
@@ -186,7 +193,16 @@ class MainWindow(QMainWindow):
 
 
 def main():
-    ' Main Loop '
+    """Main Loop."""
+    APPNAME = str(__package__ or __doc__)[:99].lower().strip().replace(" ", "")
+    try:
+        os.nice(19)  # smooth cpu priority
+        libc = cdll.LoadLibrary('libc.so.6')  # set process name
+        buff = create_string_buffer(len(APPNAME) + 1)
+        buff.value = bytes(APPNAME.encode("utf-8"))
+        libc.prctl(15, byref(buff), 0, 0, 0)
+    except Exception as reason:
+        print(reason)
     application = QApplication(sys.argv)
     application.setApplicationName(__doc__.strip().lower())
     application.setOrganizationName(__doc__.strip().lower())
@@ -199,13 +215,13 @@ def main():
         pass
     for o, v in opts:
         if o in ('-h', '--help'):
-            print(''' Usage:
+            print(APPNAME + ''' Usage:
                   -h, --help        Show help informations and exit.
                   -v, --version     Show version information and exit.''')
-            return sys.exit(1)
+            return sys.exit(0)
         elif o in ('-v', '--version'):
             print(__version__)
-            return sys.exit(1)
+            return sys.exit(0)
     mainwindow = MainWindow()
     mainwindow.show()
     sys.exit(application.exec_())
