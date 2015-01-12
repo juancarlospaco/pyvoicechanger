@@ -16,16 +16,18 @@ __source__ = ('https://raw.githubusercontent.com/juancarlospaco/'
 
 
 # imports
-import os
-import sys
-from ctypes import byref, cdll, create_string_buffer
-from getopt import getopt
 import logging as log
+import os
+import signal
+import sys
+import time
 from copy import copy
+from ctypes import byref, cdll, create_string_buffer
+from datetime import datetime
+from getopt import getopt
 from subprocess import call
 from urllib import request
 from webbrowser import open_new_tab
-import signal
 
 from PyQt5.QtCore import QProcess, Qt, QTimer, QUrl
 from PyQt5.QtGui import QColor, QCursor, QIcon
@@ -33,8 +35,8 @@ from PyQt5.QtNetwork import (QNetworkAccessManager, QNetworkProxyFactory,
                              QNetworkRequest)
 from PyQt5.QtWidgets import (QApplication, QDial, QFontDialog,
                              QGraphicsDropShadowEffect, QGroupBox, QLabel,
-                             QMainWindow, QMessageBox, QShortcut, QVBoxLayout,
-                             QProgressDialog)
+                             QMainWindow, QMessageBox, QProgressDialog,
+                             QShortcut, QVBoxLayout)
 
 
 HELP = """<h3>PyVoiceChanger</h3><b>Microphone Voice Deformation App !.</b><br>
