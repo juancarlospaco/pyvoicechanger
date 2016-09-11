@@ -14,12 +14,11 @@ from PyQt5.QtCore import QProcess, Qt, QTimer
 from PyQt5.QtGui import QColor, QCursor, QIcon
 from PyQt5.QtWidgets import (QApplication, QDial, QGraphicsDropShadowEffect,
                              QGroupBox, QLabel, QMainWindow, QMenu,
-                             QMessageBox, QShortcut, QSystemTrayIcon,
-                             QVBoxLayout)
+                             QShortcut, QSystemTrayIcon, QVBoxLayout)
 
-from anglerfish import (about_self, check_encoding, make_logger,
-                        make_post_exec_msg, set_process_name,
-                        set_single_instance, view_code, set_desktop_launcher)
+from anglerfish import (check_encoding, make_logger, make_post_exec_msg,
+                        set_process_name, set_single_instance,
+                        set_desktop_launcher)
 
 
 __version__ = '1.0.0'
@@ -63,6 +62,8 @@ class MainWindow(QMainWindow):
         self.center()
         QShortcut("Ctrl+q", self, activated=lambda: self.close())
         self.menuBar().addMenu("&File").addAction("Quit", lambda: exit())
+        self.menuBar().addMenu("Sound").addAction(
+            "STOP !", lambda: call('killall rec', shell=True))
         windowMenu = self.menuBar().addMenu("&Window")
         windowMenu.addAction("Hide", lambda: self.hide())
         windowMenu.addAction("Minimize", lambda: self.showMinimized())
@@ -72,9 +73,6 @@ class MainWindow(QMainWindow):
         windowMenu.addAction("Center", lambda: self.center())
         windowMenu.addAction("Top-Left", lambda: self.move(0, 0))
         windowMenu.addAction("To Mouse", lambda: self.move_to_mouse_position())
-        helpMenu = self.menuBar().addMenu("&Help")
-        helpMenu.addAction("About Qt", lambda: QMessageBox.aboutQt(self))
-        helpMenu.addAction("View Source Code", view_code)
         # widgets
         group0 = QGroupBox("Voice Deformation")
         self.setCentralWidget(group0)
