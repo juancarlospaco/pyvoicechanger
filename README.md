@@ -6,6 +6,7 @@ pyvoicechanger
 
 
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp.jpg)
+![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp2.jpg)
 
 
 # Try it !:
