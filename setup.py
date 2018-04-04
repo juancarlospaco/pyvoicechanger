@@ -29,25 +29,18 @@
 """Setup.py for Python, as Generic as possible."""
 
 
-import os
 import re
+
+from pathlib import Path
 
 from setuptools import setup
 
 
-MODULE_PATH = os.path.join(os.path.dirname(__file__), "pyvoicechanger.py")
+SOURCE = (Path(__file__).parents / "pyvoicechanger.py").read_text()
 
 
 ##############################################################################
 # Dont touch below
-
-
-try:
-    with open(str(MODULE_PATH), "r", encoding="utf-8-sig") as source_code_file:
-        SOURCE = source_code_file.read()
-except:
-    with open(str(MODULE_PATH),  "r") as source_code_file:
-        SOURCE = source_code_file.read()
 
 
 def find_this(search, source=SOURCE):
