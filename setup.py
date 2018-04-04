@@ -29,10 +29,8 @@
 """Setup.py for Python, as Generic as possible."""
 
 
-import logging as log
 import os
 import re
-import sys
 
 from setuptools import setup
 
@@ -62,11 +60,7 @@ def find_this(search, source=SOURCE):
         what=search), re.S).match(source).group(1)).strip().replace("'", "")
 
 
-print("Starting build of setuptools.setup().")
-
-
 ##############################################################################
-# EDIT HERE
 
 
 setup(
