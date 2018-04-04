@@ -23,8 +23,7 @@
 #
 # To Upload to PyPI by executing:
 # sudo pip install --upgrade pip setuptools wheel virtualenv
-# python3 setup.py register
-# python3 setup.py bdist_egg bdist_wheel --universal sdist --formats=bztar,gztar,zip upload --sign
+# python3 setup.py bdist_egg bdist_wheel --universal sdist --formats=zip upload --sign
 
 
 """Setup.py for Python, as Generic as possible."""
@@ -38,12 +37,7 @@ import sys
 from setuptools import setup
 
 
-##############################################################################
-# EDIT HERE
-
-
 MODULE_PATH = os.path.join(os.path.dirname(__file__), "pyvoicechanger.py")
-DESCRIPTION = """PyVoiceChanger is a Real Time Microphone Voice Changer App."""
 
 
 ##############################################################################
@@ -81,7 +75,7 @@ setup(
     version=find_this("version"),
 
     description="Real Time Microphone Voice Changer.",
-    long_description=DESCRIPTION,
+    long_description="PyVoiceChanger is a Real Time Microphone Voice Changer App.",
 
     url=find_this("url"),
     license=find_this("license"),
@@ -94,7 +88,9 @@ setup(
     include_package_data=True,
     zip_safe=True,
 
-    tests_require=['isort', 'pylama'],
+    python_requires='>=3.6',
+
+    tests_require=['isort', 'prospector', 'pre-commit', 'pre-commit-hooks'],
 
     keywords=['voice', 'changer', 'utils', 'real time', 'utility'],
 
@@ -117,11 +113,8 @@ setup(
 
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
 
         'Programming Language :: Python :: Implementation :: CPython',
     ],
 )
-
-
-print("Finished build of setuptools.setup().")
