@@ -9,12 +9,6 @@ pyvoicechanger
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp2.jpg)
 
 
-# Try it !
-
-```
-wget -O - https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/pyvoicechanger.py | python3
-```
-
 # Install
 
 ```
