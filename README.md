@@ -9,13 +9,13 @@ pyvoicechanger
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp2.jpg)
 
 
-# Try it !:
+# Try it !
 
 ```
 wget -O - https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/pyvoicechanger.py | python3
 ```
 
-# Install permanently on the system:
+# Install
 
 ```
 sudo apt-get install sox python3-pyqt5  
@@ -25,9 +25,9 @@ sudo apt-get install sox python3-pyqt5
 sudo pip install pyvoicechanger
 ```
 
-# Requisites:
+# Requisites
 
-- [Python 3.x](https://www.python.org "Python Homepage")
+- [Python 3.6+](https://www.python.org "Python Homepage")
 - [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
 - Sox *(Linux package)*
 - Working Microphone, Speakers and Sound System.
