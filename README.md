@@ -12,7 +12,7 @@ pyvoicechanger
 # Install
 
 ```
-sudo apt-get install sox python3-pyqt5  
+# sudo apt-get install sox python3-pyqt5  
 # sudo yum install python3-qt5 sox
 # sudo pacman -S python-pyqt5 sox
 
@@ -23,5 +23,5 @@ sudo pip install pyvoicechanger
 
 - [Python 3.6+](https://www.python.org "Python Homepage")
 - [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
-- Sox *(Linux package)*
+- Sox *(Linux package)*.
 - Working Microphone, Speakers and Sound System.
