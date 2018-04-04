@@ -1,9 +1,9 @@
 pyvoicechanger
 ==============
 
-- Real Time Microphone Voice Changer App.
-- Works with On-Line Games and VideoConferences !
+- Real Time Microphone Voice Changer App. Works with On-Line Games and VideoConferences!
 
+![screenshot](https://source.unsplash.com/DoA2duXyzRM/800x400 "Illustrative Photo by https://unsplash.com/@clemono2")
 
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp.jpg)
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp2.jpg)
