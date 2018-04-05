@@ -22,9 +22,10 @@ sudo pip install pyvoicechanger
 # Requisites
 
 - [Python 3.6+](https://www.python.org "Python Homepage")
-- [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
+- [PyQt 5.10+](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
 - Sox *(Linux package)*.
 - Working Microphone, Speakers and Sound System.
+- Working Sound Loopback Kernel Module
 
 
 # Troubleshooting
