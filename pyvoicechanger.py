@@ -6,7 +6,6 @@
 
 
 import sys
-from datetime import datetime
 from subprocess import call
 from time import sleep
 
@@ -16,34 +15,16 @@ from PyQt5.QtWidgets import (QApplication, QDial, QGraphicsDropShadowEffect,
                              QGroupBox, QLabel, QMainWindow, QMenu,
                              QShortcut, QSystemTrayIcon, QVBoxLayout)
 
-from anglerfish import (check_encoding, make_logger, make_post_exec_msg,
-                        set_process_name, set_single_instance,
-                        set_desktop_launcher)
 
-
-__version__ = '1.0.0'
+__version__ = '1.5.0'
 __license__ = ' GPLv3+ LGPLv3+ '
 __author__ = ' juancarlos '
 __email__ = ' juancarlospaco@gmail.com '
 __url__ = 'https://github.com/juancarlospaco/pyvoicechanger#pyvoicechanger'
-start_time = datetime.now()
-desktop_file_content = """
-[Desktop Entry]
-Comment=Voice Changer App.
-Exec=chrt --idle 0 pyvoicechanger.py
-GenericName=Voice Changer App.
-Icon=audio-input-microphone
-Name=PyVoiceChanger
-StartupNotify=true
-Terminal=false
-Type=Application
-Categories=Utility
-X-DBUS-ServiceName=pyvoicechanger
-X-KDE-StartupNotify=true
-"""
 
 
 ###############################################################################
+sys.dont_write_bytecode = True
 
 
 class MainWindow(QMainWindow):
@@ -89,10 +70,10 @@ class MainWindow(QMainWindow):
         self.control.sliderReleased.connect(
             lambda: self.control.setCursor(QCursor(Qt.OpenHandCursor)))
         self.control.valueChanged.connect(
-            lambda: self.control.setToolTip("<b>" + str(self.control.value())))
+            lambda: self.control.setToolTip(f"<b>{self.control.value()}"))
         self.control.valueChanged.connect(
             lambda: self.statusBar().showMessage(
-                "Voice deformation: " + str(self.control.value()), 5000))
+                f"Voice deformation: {self.control.value()}", 5000))
         self.control.valueChanged.connect(self.run)
         self.control.valueChanged.connect(lambda: self.process.kill())
         # Graphic effect
@@ -136,14 +117,13 @@ class MainWindow(QMainWindow):
         """Run subprocess to deform voice."""
         self.glow.setEnabled(False)
         value = int(self.control.value()) * 100
-        cmd = 'play -q -V0 "|rec -q -V0 -n -d -R riaa bend pitch {0} "'
-        command = cmd.format(int(value))
-        log.debug("Voice Deformation Value: {0}".format(value))
-        log.debug("Voice Deformation Command: {0}".format(command))
+        command = f'play -q -V0 "|rec -q -V0 -n -d -R riaa bend pitch {value} "'
+        print(f"Voice Deformation Value: {value}")
+        print(f"Voice Deformation Command: {command}")
         self.process.start(command)
         if self.isVisible():
             self.statusBar().showMessage("Minimizing to System TrayIcon", 3000)
-            log.debug("Minimizing Main Window to System TrayIcon now...")
+            print("Minimizing Main Window to System TrayIcon now...")
             sleep(3)
             self.hide()
 
@@ -178,13 +158,7 @@ class MainWindow(QMainWindow):
 
 def main():
     """Main Loop."""
-    global log
-    log = make_logger("pyvoicechanger")
-    log.debug(__doc__ + __version__ + __url__)
-    check_encoding()
-    set_process_name("pyvoicechanger")
-    set_single_instance("pyvoicechanger")
-    set_desktop_launcher("pyvoicechanger", desktop_file_content)
+    print(__doc__ + __version__ + __url__)
     application = QApplication(sys.argv)
     application.setApplicationName("pyvoicechanger")
     application.setOrganizationName("pyvoicechanger")
@@ -193,7 +167,6 @@ def main():
     application.aboutToQuit.connect(lambda: call('killall rec', shell=True))
     mainwindow = MainWindow()
     mainwindow.show()
-    make_post_exec_msg(start_time)
     sys.exit(application.exec_())
 
 
