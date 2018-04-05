@@ -25,3 +25,20 @@ sudo pip install pyvoicechanger
 - [PyQt 5.x](http://www.riverbankcomputing.co.uk/software/pyqt/download5 "PyQt5 Homepage")
 - Sox *(Linux package)*.
 - Working Microphone, Speakers and Sound System.
+
+
+# Troubleshooting
+
+<details>
+<summary>If its not working</summary>
+
+`modprobe snd-aloop`
+
+This command MUST be successful, Sound Loopback Kernel Module MUST be up & running,
+if it fails you dont have Sound Loopback Kernel Module up & running,
+if it says `modprobe: FATAL: Module aloop not found ...` it failed,
+please check your Distro Documentation about Sound Loopback Kernel Module to fix it,
+sometimes you need to enable it, or recompile it, or reinstall it, or whatever
+(that is not my Bug, complain to your Distro).
+
+</details>
