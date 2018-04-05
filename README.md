@@ -8,12 +8,11 @@ pyvoicechanger
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp.jpg)
 ![screenshot](https://raw.githubusercontent.com/juancarlospaco/pyvoicechanger/master/temp2.jpg)
 
-**ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!, ON BIG REFACTOR RIGHT NOW!!!**
 
 # Install
 
 ```
-# sudo apt-get install sox python3-pyqt5  
+# sudo apt-get install sox python3-pyqt5
 # sudo yum install python3-qt5 sox
 # sudo pacman -S python-pyqt5 sox
 
