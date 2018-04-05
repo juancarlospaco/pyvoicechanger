@@ -110,7 +110,7 @@ class MainWindow(QMainWindow):
         if self.slider_timer.isActive():
             self.slider_timer.stop()
         self.glow.setEnabled(True)
-        call('killall rec', shell=True)
+        call('killall rec ; killall play', shell=True)
         self.slider_timer.start(3000)
 
     def on_slider_timer_timeout(self):
@@ -164,7 +164,8 @@ def main():
     application.setOrganizationName("pyvoicechanger")
     application.setOrganizationDomain("pyvoicechanger")
     application.setWindowIcon(QIcon.fromTheme("audio-input-microphone"))
-    application.aboutToQuit.connect(lambda: call('killall rec', shell=True))
+    application.aboutToQuit.connect(
+        lambda: call('killall rec ; killall play', shell=True))
     mainwindow = MainWindow()
     mainwindow.show()
     sys.exit(application.exec_())
