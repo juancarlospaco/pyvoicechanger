@@ -21,6 +21,8 @@ Arch: `sudo pacman -S python-pyqt5 sox`
 sudo pip install pyvoicechanger
 ```
 
+**Run:** `pyvoicechanger.py`
+
 
 # Requisites
 
