@@ -11,13 +11,14 @@ pyvoicechanger
 
 # Install
 
-```
-# sudo apt-get install sox python3-pyqt5
-# sudo yum install python3-qt5 sox
-# sudo pacman -S python-pyqt5 sox
+Debian/Ubuntu: `sudo apt-get install sox python3-pyqt5`
+Centos/RedHat: `sudo yum install python3-qt5 sox`
+Arch: `sudo pacman -S python-pyqt5 sox`
 
+```
 sudo pip install pyvoicechanger
 ```
+
 
 # Requisites
 
