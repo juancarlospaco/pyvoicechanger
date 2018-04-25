@@ -47,4 +47,6 @@ please check your Distro Documentation about Sound Loopback Kernel Module to fix
 sometimes you need to enable it, or recompile it, or reinstall it, or whatever
 (that is not my Bug, complain to your Distro).
 
+Check your Python version executing `python --version`, it should say `3.6.0` or higher.
+
 </details>
