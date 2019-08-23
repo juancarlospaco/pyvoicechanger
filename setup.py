@@ -36,7 +36,7 @@ from pathlib import Path
 from setuptools import setup
 
 
-SOURCE = (Path(__file__).parents / "pyvoicechanger.py").read_text()
+SOURCE = (Path(__file__).parent / "pyvoicechanger.py").read_text()
 
 
 ##############################################################################
